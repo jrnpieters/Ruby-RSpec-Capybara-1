@@ -4,7 +4,7 @@ require "cucumber"
 
 describe "BookingBug's admin interface", :sauce => true do
   it "Should successfully load the angular booking journeyn" do
-  visit 'https://anz-dev.bookingbug.com/'
+  visit 'https://anz-staging.bookingbug.com/'
 
   expect(page).to have_content('BookingBug')
 
@@ -41,13 +41,13 @@ describe "BookingBug's admin interface", :sauce => true do
  expect(page).to have_content('Login as user', wait: 20)
   find_link('Login as User').click
 
-  visit 'https://anz-dev.bookingbug.com/login/login?select=business'
+  visit 'https://anz-staging.bookingbug.com/login/login?select=business'
     fill_in('limit', with: 'Bondi')
 
 
   find_link('Login').click
 
-  visit('https://anz-dev.bookingbug.com/view/dashboard/add_booking_frame?add_booking_menu=anz&base=anz&company_id=37017&iarray=128&jd=2457595')
+  visit('https://anz-staging.bookingbug.com/view/dashboard/add_booking_frame?add_booking_menu=anz&base=anz&company_id=37017&iarray=128&jd=2457595')
 
   expect(page).to have_content('Make a Booking')
 
@@ -62,22 +62,17 @@ select('0', from: 'service',  match: :first)
 
   
   
-  page.save_screenshot('/var/lib/jenkins/userContent/anz-classic/widget/a.png')
-page.save_screenshot('/var/lib/jenkins/userContent/anz-classic/widget/b.png')
+ 
 expect(page).to have_css('span.period-label.ng-binding')
 find('div.times', match: :first).click
 
 
-page.save_screenshot('/var/lib/jenkins/userContent/anz-classic/widget/c.png')
+
 #binding.pry
 
 find('li.time-slot.ng-scope', match: :first, wait: 5).trigger('click')
-page.save_screenshot('/var/lib/jenkins/userContent/anz-classic/widget/d.png')
 find_button('Book').click
-page.save_screenshot('/var/lib/jenkins/userContent/anz-classic/widget/e.png')
 
-	page.save_screenshot('/var/lib/jenkins/userContent/anz-classic/widget/f.png')
-#find('li.time-slot.ng-scope').click
 
 
 find_button('Book').click
@@ -114,13 +109,13 @@ end
         page.should_not have_content('Bondi')
 
 
- visit('https://anz-dev.bookingbug.com/space/activity')
+ visit('https://anz-staging.bookingbug.com/space/activity')
 find_link('Recent New Bookings').click
 #find_link('Search')[1].click
 within('#confContent') do
 find_link('Search', match: :first).click
 end
-visit('https://anz-dev.bookingbug.com/client/future?id=246')
+visit('https://anz-staging.bookingbug.com/client/future?id=246')
  find('a.show_actions', match: :first).click
 sleep 2   
  find_link('Cancel', match: :first).click
