@@ -62,7 +62,7 @@ expect(page).to have_css('span.period-label.ng-binding')
 find('div.times', match: :first).click
 
 
-puts calendar has loaded
+puts 'calendar has loaded!!'
 
     
   end
