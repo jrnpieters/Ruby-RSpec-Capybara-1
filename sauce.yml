@@ -1,0 +1,3 @@
+---
+  language: "ruby"
+  test-framework: "capybara"
