@@ -101,7 +101,7 @@ expect(page).to have_content('Bondi')
 new_window = window_opened_by {find_link('HTML').click}
     within_window new_window do
 puts 'screenshot'
-
+end
 
 
 
@@ -115,7 +115,7 @@ find_link('Recent New Bookings').click
 #find_link('Search')[1].click
 within('#confContent') do
 find_link('Search', match: :first).click
-
+end
 visit('https://anz-dev.bookingbug.com/client/future?id=246')
  find('a.show_actions', match: :first).click
 sleep 2   
