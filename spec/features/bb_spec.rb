@@ -3,7 +3,7 @@ require "capybara"
 require "cucumber"
 
 describe "BookingBug's admin interface", :sauce => true do
-  it "Should successfully load the angular booking journeyn" do
+  it "Should successfully load the angular booking journey" do
   visit 'https://anz-dev.bookingbug.com/'
 
   expect(page).to have_content('BookingBug')
