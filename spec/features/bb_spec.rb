@@ -31,7 +31,8 @@ describe "BookingBug's admin interface", :sauce => true do
 	 page.should_not have_content('16')
 
   find('a.show_actions').click
-find('a.show.as_action').click
+#find('a.show.as_action').click
+find('as_65409b0d65b64321dbb22b3b4f4f24fb--show-15-link').click
      #find('i.fa.fa-sticky-note-o').click
 
  expect(page).to have_content('Login as user', wait: 20)
