@@ -4,7 +4,7 @@ require "cucumber"
 
 describe "BookingBug's admin interface", :sauce => true do
   it "Should successfully load the angular booking journeyn" do
-  visit 'https://anz-staging.bookingbug.com/'
+  visit 'https://anz-dev.bookingbug.com/'
 
   expect(page).to have_content('BookingBug')
 
@@ -31,18 +31,18 @@ describe "BookingBug's admin interface", :sauce => true do
 	 page.should_not have_content('16')
 
   find('a.show_actions').click
-visit('https://anz-staging.bookingbug.com/admin/user/show?id=12&eid=65409b0d65b64321dbb22b3b4f4f24fb')
+visit('https://anz-dev.bookingbug.com/admin/user/show?id=12&eid=65409b0d65b64321dbb22b3b4f4f24fb')
 
  expect(page).to have_content('Login as User', wait: 20)
   find_link('Login as User').click
 
-  visit 'https://anz-staging.bookingbug.com/login/login?select=business'
+  visit 'https://anz-dev.bookingbug.com/login/login?select=business'
     fill_in('limit', with: 'Bondi')
 
 
   find_link('Bondi Junction Westfield').click
 
-  visit('https://anz-staging.bookingbug.com/view/dashboard/add_booking_frame?add_booking_menu=anz&base=anz&company_id=37017&iarray=128&jd=2457595')
+  visit('https://anz-dev.bookingbug.com/view/dashboard/add_booking_frame?add_booking_menu=anz&base=anz&company_id=37017&iarray=128&jd=2457595')
 
   expect(page).to have_content('Make a Booking')
 
@@ -62,60 +62,7 @@ expect(page).to have_css('span.period-label.ng-binding')
 find('div.times', match: :first).click
 
 
-
-#binding.pry
-
-find('li.time-slot.ng-scope', match: :first, wait: 5).trigger('click')
-find_button('Book').click
-
-
-
-find_button('Book').click
-expect(page).to have_content('Select a customer')
-
-fill_in('first_name', with: 'Bowserz')	
-
-	fill_in('last_name', with: 'Castle')
-
-fill_in('email', with: 'aaron@putsbox.com')
-	find_button('Create Customer').click	
-
-	find_button('Confirm').click
-
- expect(page).to have_content('Confirmation')
-
-
-puts 'Log into putsbox and delete email.'
-visit('http://putsbox.com/users/sign_in')
-  	fill_in('user_email', with: 'jfenton@bookingbug.com')
-  	fill_in('user_password', with: 'apiapiapi1')
- 	find_button('Sign in').click
- 	visit('http://putsbox.com/aaron/inspect')
-expect(page).to have_content('Bondi')
-new_window = window_opened_by {find_link('HTML').click}
-    within_window new_window do
-puts 'screenshot'
-end
-
-
-
- find_link('Clear History').click
-        page.driver.accept_js_confirms!
-        page.should_not have_content('Bondi')
-
-
- visit('https://anz-staging.bookingbug.com/space/activity')
-find_link('Recent New Bookings').click
-#find_link('Search')[1].click
-within('#confContent') do
-find_link('Search', match: :first).click
-end
-visit('https://anz-staging.bookingbug.com/client/future?id=246')
- find('a.show_actions', match: :first).click
-sleep 2   
- find_link('Cancel', match: :first).click
- find_link('Cancel Booking').click
- find_link('Cancel Booking').click
+puts calendar has loaded
 
     
   end
