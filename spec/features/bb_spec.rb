@@ -34,7 +34,7 @@ describe "BookingBug's admin interface", :sauce => true do
     find('.fa-sticky-note-o').hover
 
 	find('i.fa.fa-sticky-note-o').click
-
+ expect(page).to have_content('Login as user', wait: 20)
   find_link('Login as User').click
 
   visit 'https://anz-dev.bookingbug.com/login/login?select=business'
