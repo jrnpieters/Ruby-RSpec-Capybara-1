@@ -33,7 +33,7 @@ describe "BookingBug's admin interface", :sauce => true do
   find('a.show_actions').click
 visit('https://anz-staging.bookingbug.com/admin/user/show?id=12&eid=65409b0d65b64321dbb22b3b4f4f24fb')
 
- expect(page).to have_content('Login as user', wait: 20)
+ expect(page).to have_content('Login as User', wait: 20)
   find_link('Login as User').click
 
   visit 'https://anz-staging.bookingbug.com/login/login?select=business'
