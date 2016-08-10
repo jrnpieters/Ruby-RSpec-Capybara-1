@@ -4,7 +4,7 @@ require "cucumber"
 
 describe "BookingBug's admin interface", :sauce => true do
   it "Should successfully load the angular booking journey" do
-  visit 'https://anz-dev.bookingbug.com/'
+  visit 'https://anz-staging.bookingbug.com/'
 
   expect(page).to have_content('BookingBug')
 
@@ -31,18 +31,18 @@ describe "BookingBug's admin interface", :sauce => true do
 	 page.should_not have_content('16')
 
   find('a.show_actions').click
-visit('https://anz-dev.bookingbug.com/admin/user/show?id=12&eid=65409b0d65b64321dbb22b3b4f4f24fb')
+visit('https://anz-staging.bookingbug.com/admin/user/show?id=12&eid=65409b0d65b64321dbb22b3b4f4f24fb')
 
  expect(page).to have_content('Login as User', wait: 20)
   find_link('Login as User').click
 
-  visit 'https://anz-dev.bookingbug.com/login/login?select=business'
+  visit 'https://anz-staging.bookingbug.com/login/login?select=business'
     fill_in('limit', with: 'Bondi')
 
 
   find_link('Bondi Junction Westfield').click
 
-  visit('https://anz-dev.bookingbug.com/view/dashboard/add_booking_frame?add_booking_menu=anz&base=anz&company_id=37017&iarray=128&jd=2457595')
+  visit('https://anz-staging.bookingbug.com/view/dashboard/add_booking_frame?add_booking_menu=anz&base=anz&company_id=37017&iarray=128&jd=2457595')
 
   expect(page).to have_content('Make a Booking')
 
