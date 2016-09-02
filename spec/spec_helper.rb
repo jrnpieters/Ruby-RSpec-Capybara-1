@@ -20,7 +20,7 @@ Capybara.register_driver :selenium do | app|
                                  :desired_capabilities => capabilities)
 end
 
-Capybara.default_max_wait_time = 10
+Capybara.default_max_wait_time = 60
 Capybara.default_driver = :selenium
 
 RSpec.configure do |config|
@@ -29,7 +29,7 @@ RSpec.configure do |config|
     # show retry status in spec process
   config.verbose_retry = true
   # Try twice (retry once)
-  config.default_retry_count = 2
+  config.default_retry_count = 5
   # Only retry when Selenium raises Net::ReadTimeout
   config.exceptions_to_retry = [Net::ReadTimeout]
 
