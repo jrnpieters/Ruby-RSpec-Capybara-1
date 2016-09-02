@@ -14,7 +14,7 @@ describe "RBC BB Customer journey widget Cross Browser", :sauce => true do
         find('li.time-slot.ng-scope', match: :first).click   
         find_button('Continue').click  
         find_button('Confirm').click
-        find('#loading_icon')
+        #find('#loading_icon')
 # End of current functionality for now.        
   end
 end
