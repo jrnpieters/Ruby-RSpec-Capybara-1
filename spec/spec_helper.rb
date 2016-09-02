@@ -29,7 +29,7 @@ RSpec.configure do |config|
     jobname = scenario.full_description
     sessionid = ::Capybara.current_session.driver.browser.session_id
     ::Capybara.current_session.driver.quit
-
+::Capybara.current_session.driver.quit
     # Output sessionId and jobname to std out for Sauce OnDemand Plugin to display embeded results
     puts "SauceOnDemandSessionID=#{sessionid} job-name=#{jobname}"
 
