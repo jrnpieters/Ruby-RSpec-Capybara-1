@@ -8,7 +8,7 @@ describe "RBC BB Customer journey widget Cross Browser", :sauce => true do
 	visit 'http://bespoke.bookingbug.com/rbc/staging/new_customer.html?firstName=Test&lastName=Automation&mobile=5815000800'
 	expect(page).to have_content 'How would you like to connect'
 	find('.text-center.service-item', :text => 'Video Conference').click
-	sleep 2
+	sleep 10
        	find_button('Confirm').click
 	find('i.rbc-icon-arrow-down.avail-text', match: :first).click
         find('li.time-slot.ng-scope', match: :first).click   
