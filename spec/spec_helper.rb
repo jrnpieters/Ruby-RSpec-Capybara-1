@@ -3,6 +3,8 @@ require "capybara/rspec"
 require "capybara"
 require "rspec"
 require "json"
+require "rspec/retry"
+
 
 Capybara.register_driver :selenium do | app|
   capabilities = {
@@ -24,6 +26,12 @@ Capybara.default_driver = :selenium
 RSpec.configure do |config|
   config.include Capybara::DSL
   config.include Capybara::RSpecMatchers
+    # show retry status in spec process
+  config.verbose_retry = true
+  # Try twice (retry once)
+  config.default_retry_count = 2
+  # Only retry when Selenium raises Net::ReadTimeout
+  config.exceptions_to_retry = [Net::ReadTimeout]
 
   config.after(:each) do | scenario |
     jobname = scenario.full_description
