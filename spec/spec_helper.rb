@@ -11,6 +11,7 @@ Capybara.register_driver :selenium do | app|
     :version => ENV['version'],
     :browserName => ENV['browserName'],
     :platform => ENV['platform'],
+    :maxInstances: => 1
     
   }
 
