@@ -23,7 +23,7 @@ end
 
 Capybara.default_max_wait_time = 120
 Capybara.default_driver = :selenium
-Capybara.client.timeout = 320 # <= Page Load Timeout value in seconds
+#Capybara.client.timeout = 320 # <= Page Load Timeout value in seconds
 
 RSpec.configure do |config|
   config.include Capybara::DSL
