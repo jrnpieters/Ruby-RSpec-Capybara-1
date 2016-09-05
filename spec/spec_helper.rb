@@ -11,6 +11,7 @@ Capybara.register_driver :selenium do | app|
     :version => ENV['version'],
     :browserName => ENV['browserName'],
     :platform => ENV['platform'],
+    
   }
 
   url = "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.saucelabs.com:80/wd/hub".strip
@@ -22,6 +23,7 @@ end
 
 Capybara.default_max_wait_time = 120
 Capybara.default_driver = :selenium
+Capybara.client.timeout = 320 # <= Page Load Timeout value in seconds
 
 RSpec.configure do |config|
   config.include Capybara::DSL
